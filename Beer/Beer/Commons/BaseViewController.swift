@@ -13,7 +13,13 @@ class BaseViewController: UIViewController {
         super.viewDidLoad()
         setupView()
         setupConstraint()
+        setupNavigationController()
         view.backgroundColor = .white
+    }
+    
+    private func setupNavigationController() {
+        self.navigationController?.navigationItem.backButtonDisplayMode = .minimal
+        self.navigationController?.navigationBar.tintColor = UIColor.black
     }
     
     func setupView() {
