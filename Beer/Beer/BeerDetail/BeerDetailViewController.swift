@@ -138,6 +138,12 @@ class BeerDetailViewController: BaseViewController, BeerDetailViewProtocol {
         beerAlcoholContentValue.text = alcoholContent
         beerBitternessValue.text = bitterness
         beerDescriptionValue.text = beer.description
+        
+        setupAccessibility()
+    }
+    
+    private func setupAccessibility() {
+        beerImage.isAccessibilityElement = false
     }
     
     override func setupView() {

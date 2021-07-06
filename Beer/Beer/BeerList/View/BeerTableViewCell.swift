@@ -15,6 +15,7 @@ class BeerTableViewCell: UITableViewCell {
     var beerImage: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
+        image.isAccessibilityElement = false
         return image
     }()
     
@@ -31,6 +32,7 @@ class BeerTableViewCell: UITableViewCell {
     var beerNameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.isAccessibilityElement = false
         label.font = .boldSystemFont(ofSize: 24)
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
@@ -41,6 +43,7 @@ class BeerTableViewCell: UITableViewCell {
     var beerAlcoholContentLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.isAccessibilityElement = false
         label.font = .systemFont(ofSize: 12)
         return label
     }()
@@ -51,6 +54,7 @@ class BeerTableViewCell: UITableViewCell {
         self.beer = beer
         setupView()
         setupConstraints()
+        setupAccessibility()
     }
     
     private func setupView() {
@@ -68,6 +72,13 @@ class BeerTableViewCell: UITableViewCell {
         beerResumeStack.addArrangedSubview(beerNameLabel)
         beerResumeStack.addArrangedSubview(beerAlcoholContentLabel)
 
+    }
+    
+    private func setupAccessibility() {
+        self.isAccessibilityElement = true
+        self.accessibilityLabel = beerNameLabel.text
+        self.accessibilityValue = beerAlcoholContentLabel.text
+        self.accessibilityTraits = .button
     }
     
     private func setupImage(imageURL: String) {
