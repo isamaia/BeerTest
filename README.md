@@ -5,3 +5,6 @@ Projeto composto por duas telas sendo: a primeira uma listagem de cerveja retorn
 
 ## Para buildar
 Necessário rodar pod install para instalação do Alamofire
+
+## Duvidas e Sugestões
+Falar com Isabella Maia Bitencourt (bitencourtisa@icloud.com)
