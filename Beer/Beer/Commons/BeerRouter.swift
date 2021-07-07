@@ -32,11 +32,12 @@ class BeerRouter: BeerRouterProtocol {
     
     static func goToBeerList(view: BeerListView) {
         let presenter: BeerListPresenterProtocol = BeerListPresenter()
-         
+
         view.presenter = presenter
         view.presenter?.view = view
         view.presenter?.interactor = BeerListInteractor()
         view.presenter?.interactor?.presenter = presenter
+        view.presenter?.interactor?.service = BeerListService()
         presenter.fetchBeerList()
     }
     

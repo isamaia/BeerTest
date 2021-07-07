@@ -19,7 +19,7 @@ class BeerListView: BaseViewController, BeerListViewProtocol {
     var presenter: BeerListPresenterProtocol?
     var beers: [BeerModel] = []
     
-    private var loadingView: UIActivityIndicatorView = {
+    var loadingView: UIActivityIndicatorView = {
         let view = UIActivityIndicatorView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .white
@@ -27,7 +27,7 @@ class BeerListView: BaseViewController, BeerListViewProtocol {
         return view
     }()
 
-    private var beerTableView: UITableView = {
+    var beerTableView: UITableView = {
         let table = UITableView()
         table.translatesAutoresizingMaskIntoConstraints = false
         return table

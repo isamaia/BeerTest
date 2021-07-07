@@ -10,17 +10,18 @@ import Alamofire
 
 protocol BeerListInteractorProtocol: AnyObject {
     var presenter: BeerListPresenterProtocol? { get set }
+    var service: BeerListServiceProtocol? { get set }
     func fetchBeerList()
 }
 
 class BeerListInteractor: BeerListInteractorProtocol {
     
     weak var presenter: BeerListPresenterProtocol?
-    let service = BeerListService()
+    var service: BeerListServiceProtocol?
     
     func fetchBeerList() {
         presenter?.showLoading()
-        service.fetchBeerList { response in
+        service?.fetchBeerList { response in
             self.presenter?.hideLoading()
             self.presenter?.showBeerList(with: response)
         } failure: { error in
